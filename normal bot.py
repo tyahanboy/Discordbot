@@ -188,4 +188,4 @@ def owner_label() -> str:
 def admin_label() -> str:
     return "（管理者限定）"
 
-bot.run(os.getenv(''))
+bot.run(os.environ('DISCORD_BOT_TOKEN'))
