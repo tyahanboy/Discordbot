@@ -13,8 +13,6 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 
-keep_alive()
-
 NG_WORDS_FILE = "ng_words.json"
 INITIAL_NG_WORDS = [
     "死ね",
