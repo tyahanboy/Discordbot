@@ -535,10 +535,17 @@ async def restart_cmd(interaction: discord.Interaction):
     await interaction.response.send_message("🔄 再起動します…", ephemeral=True)
     os.execv(sys.executable, [sys.executable] + sys.argv)
 
-
 @bot.tree.command(name="say", description=f"ボットとして発言します{owner_label()}")
 @app_commands.describe(channel="送信先チャンネル", message="メッセージ内容")
 async def say(interaction: discord.Interaction, channel: discord.TextChannel, message: str):
+    if not is_owner(interaction):
+        await interaction.response.send_message("❌ オーナーのみ使用できます。", ephemeral=True)
+        return
+    await channel.send(message)
+    await interaction.response.send_message("✅ メッセージを送信しました。", ephemeral=True)
 
-    bot.run(os.environ['DISCORD_BOT_TOKEN'])
-    
+
+# --------------------------------------------------
+# 🚀 ボットの起動（インデントなし・一番左端から書く）
+# --------------------------------------------------
+bot.run(os.environ['DISCORD_BOT_TOKEN'])
