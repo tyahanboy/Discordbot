@@ -13,10 +13,6 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 
-from keep_alive import keep_alive
-
-keep_alive()
-
 NG_WORDS_FILE = "ng_words.json"
 INITIAL_NG_WORDS = [
     "死ね", "消えろ", "うざい", "クソ", "ゴミ", "雑魚", "きもい", "キモい", 
